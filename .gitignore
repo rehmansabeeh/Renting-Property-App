@@ -1,0 +1,66 @@
+# --------------------
+# Global ignores
+# --------------------
+.DS_Store
+*.pem
+*.log
+*.swp
+*.tmp
+*.bak
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Env files
+.env*
+client/.env*
+server/.env*
+
+# --------------------
+# Client (Next.js / Yarn Berry)
+# --------------------
+client/node_modules
+client/.pnp
+client/.pnp.*
+client/.yarn/*
+!client/.yarn/patches
+!client/.yarn/plugins
+!client/.yarn/releases
+!client/.yarn/versions
+
+client/coverage
+client/.next/
+client/out/
+client/build
+client/.vercel
+
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
+client/.pnpm-debug.log*
+
+client/*.tsbuildinfo
+client/next-env.d.ts
+
+# --------------------
+# Server (Node.js / Python)
+# --------------------
+server/node_modules/
+server/build/
+server/dist/
+server/coverage/
+
+# Python-specific (if applicable)
+server/__pycache__/
+server/*.py[cod]
+server/*.egg-info/
+server/env/
+server/venv/
+
+server/npm-debug.log*
+server/yarn-debug.log*
+server/yarn-error.log*
+server/.pnpm-debug.log*
