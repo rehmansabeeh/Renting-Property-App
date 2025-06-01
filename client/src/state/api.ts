@@ -29,18 +29,15 @@ export const api = createApi({
             userRole === "manager"
               ? `/managers/${user.userId}`
               : `/tenants/${user.userId}`;
-          console.log("endpoint", endpoint);
+
           let userDetailsResponse = await fetchWithBQ({ url: endpoint });
-          console.log("userDetailsResponse", userDetailsResponse);
           if (
             userDetailsResponse.error &&
             userDetailsResponse?.error?.status === 404
           ) {
-            console.log("User details not found, creating new user");
-
-            // If user details not found, create a new user
             const createUserResponse = await createNewUserInDatabase(
               user,
+              idToken,
               userRole,
               fetchWithBQ
             );
