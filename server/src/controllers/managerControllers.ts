@@ -44,3 +44,23 @@ export const createManager = async (
     res.status(500).json({ message: `Error creating Manager`, error });
   }
 };
+export const updateManager = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const { name, email, phoneNumber } = req.body;
+    const { cognitoId } = req.params;
+    const updateManager = await prisma.manager.update({
+      where: { cognitoId },
+      data: {
+        name,
+        email,
+        phoneNumber,
+      },
+    });
+    res.json(updateManager);
+  } catch (error) {
+    res.status(500).json({ message: `Error updating Manager`, error });
+  }
+};
