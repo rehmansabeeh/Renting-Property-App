@@ -1,3 +1,4 @@
+"use client";
 import { NAVBAR_HEIGHT } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,7 +37,7 @@ const Navbar = () => {
       style={{ height: `${NAVBAR_HEIGHT}px` }}
     >
       <div className="flex justify-between items-center w-full h-full px-8">
-        <div className="flex items-center gap-4 md:gap-6 p-1 border-2">
+        <div className="flex items-center gap-4 md:gap-6 p-1">
           {isDashboardPage && (
             <div className="md:hidden">
               <SidebarTrigger />
@@ -66,7 +67,7 @@ const Navbar = () => {
           {isDashboardPage && authUser && (
             <Button
               variant="secondary"
-              className="md:ml-4 bg-primary-50 text-primary=700 hover:bg-secondary-500 hover:text-primary-50"
+              className="md:ml-4 bg-primary-50 text-primary-700 hover:bg-secondary-500 hover:text-primary-50"
               onClick={() =>
                 router.push(
                   authUser.userRole?.toLowerCase() == "manager"
@@ -87,7 +88,6 @@ const Navbar = () => {
                 <>
                   <Search className="h-4 w-4" />
                   <span className="hidden md:block ml-2">
-                    {" "}
                     Search Properties
                   </span>
                 </>
