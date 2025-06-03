@@ -2,11 +2,11 @@
 import SettingsForm from "@/components/SettingsForm";
 import {
   useGetAuthUserQuery,
-  useUpdateTenantSettingsMutation,
+  useUpdateManagerSettingsMutation,
 } from "@/state/api";
 import React, { use } from "react";
 
-const TenantSettings = () => {
+const ManagerSettings = () => {
   const { data: authUser, isLoading } = useGetAuthUserQuery();
   if (isLoading) return <div>Loading...</div>;
 
@@ -17,21 +17,21 @@ const TenantSettings = () => {
   };
 
   const handleSubmit = async (data: typeof initialData) => {
-    await updateTenant({
+    await updateManager({
       cognitoId: authUser?.cognitoInfo.userId || "",
       ...data,
     });
   };
-  const [updateTenant] = useUpdateTenantSettingsMutation();
+  const [updateManager] = useUpdateManagerSettingsMutation();
   return (
     <div>
       <SettingsForm
         initialData={initialData}
         onSubmit={handleSubmit}
-        userType="tenant"
+        userType="manager"
       />
     </div>
   );
 };
 
-export default TenantSettings;
+export default ManagerSettings;
