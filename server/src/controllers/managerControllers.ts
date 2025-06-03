@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { wktToGeoJSON } from "@terraformer/wkt";
 import { Request, Response } from "express";
 
 const prisma = new PrismaClient();
@@ -62,5 +63,44 @@ export const updateManager = async (
     res.json(updateManager);
   } catch (error) {
     res.status(500).json({ message: `Error updating Manager`, error });
+  }
+};
+
+export const getManagerProperties = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const { cognitoId } = req.params;
+
+    const properties = await prisma.property.findMany({
+      where: { managerCognitoId: cognitoId },
+      include: { location: true },
+    });
+    const propertiesWithFormattedLocation = await Promise.all(
+      properties.map(async (property) => {
+        const coordinates: { coordinates: string }[] = await prisma.$queryRaw`
+        SELECT ST_asText(coordinates) as coordinates from "Location" where id = ${property.locationId}`;
+        const geoJson: any = wktToGeoJSON(coordinates[0].coordinates || "");
+        const longitude = geoJson.coordinates[0];
+        const latitude = geoJson.coordinates[1];
+
+        return {
+          ...property,
+          location: {
+            ...property.location,
+            coordinates: {
+              longitude: longitude,
+              latitude: latitude,
+            },
+          },
+        };
+      })
+    );
+    res.json(propertiesWithFormattedLocation);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: `Error retrieving Managers Properties`, error });
   }
 };
