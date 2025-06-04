@@ -1,4 +1,4 @@
-import express from "express";
+import express, { application } from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -11,6 +11,7 @@ import tenantRoutes from "./routes/tenantRoutes";
 import managerRoutes from "./routes/managerRoutes";
 import propertyRoutes from "./routes/propertyRoutes";
 import leaseRoutes from "./routes/leaseRoutes";
+import applicationRoutes from "./routes/applicationRoutes";
 /* CONFIGURATIONS*/
 
 dotenv.config();
@@ -28,6 +29,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the server!");
 });
 
+app.use("/applications", applicationRoutes);
 app.use("/properties", propertyRoutes);
 app.use("/tenants", authMiddleware(["tenant"]), tenantRoutes);
 app.use("/managers", authMiddleware(["manager"]), managerRoutes);
