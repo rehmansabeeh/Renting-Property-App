@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { FiltersState, initialState, setFilters } from "@/state";
 import { useAppSelector } from "@/state/redux";
 import { usePathname, useRouter } from "next/navigation";

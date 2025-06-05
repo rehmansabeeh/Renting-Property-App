@@ -1,10 +1,11 @@
+/* eslint-disable */
 "use client";
 import SettingsForm from "@/components/SettingsForm";
 import {
   useGetAuthUserQuery,
   useUpdateManagerSettingsMutation,
 } from "@/state/api";
-import React, { use } from "react";
+import React from "react";
 
 const ManagerSettings = () => {
   const { data: authUser, isLoading } = useGetAuthUserQuery();

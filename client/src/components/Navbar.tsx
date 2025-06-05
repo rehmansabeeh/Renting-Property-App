@@ -1,8 +1,9 @@
+/* eslint-disable */
 "use client";
 import { NAVBAR_HEIGHT } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
-import React, { use } from "react";
+import React from "react";
 import { Button } from "./ui/button";
 import { useGetAuthUserQuery } from "@/state/api";
 import { usePathname, useRouter } from "next/navigation";

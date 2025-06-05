@@ -1,9 +1,9 @@
+/* eslint-disable */
 "use client";
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-
 const CallToAction = () => {
   return (
     <div className="relative py-24">

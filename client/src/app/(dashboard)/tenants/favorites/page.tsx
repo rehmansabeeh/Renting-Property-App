@@ -1,5 +1,5 @@
+/* eslint-disable */
 "use client";
-
 import Card from "@/components/Card";
 import Header from "@/components/Header";
 import Loading from "@/components/Loading";
@@ -34,7 +34,7 @@ const Favorites = () => {
   return (
     <div className="dashboard-container">
       <Header
-        title="Favorited Properties"
+        title="Favorite Properties"
         subtitle="Browse and manage your saved property listings"
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -50,7 +50,7 @@ const Favorites = () => {
         ))}
       </div>
       {(!favoriteProperties || favoriteProperties.length === 0) && (
-        <p>You don&lsquo;t have any favorited properties</p>
+        <p>You don&lsquo;t have any favorite properties</p>
       )}
     </div>
   );

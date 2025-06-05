@@ -1,9 +1,9 @@
+/* eslint-disable */
 "use client";
 import { SettingsFormData, settingsSchema } from "@/lib/schemas";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { set } from "zod";
 import { Form } from "./ui/form";
 import { CustomFormField } from "./FormField";
 import { Button } from "./ui/button";

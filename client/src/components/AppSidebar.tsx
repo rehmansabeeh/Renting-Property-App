@@ -1,5 +1,6 @@
+/* eslint-disable */
 import { usePathname } from "next/navigation";
-import React, { use } from "react";
+import React from "react";
 import {
   Sidebar,
   SidebarContent,

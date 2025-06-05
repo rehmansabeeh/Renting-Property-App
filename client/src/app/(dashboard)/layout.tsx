@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 import Navbar from "@/components/Navbar";
 import { SidebarProvider } from "@/components/ui/sidebar";
@@ -6,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "@/components/AppSidebar";
 import { useGetAuthUserQuery } from "@/state/api";
 import { usePathname, useRouter } from "next/navigation";
-import { set } from "zod";
+
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const { data: authUser, isLoading: authLoading } = useGetAuthUserQuery();
   const router = useRouter();

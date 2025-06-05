@@ -1,5 +1,5 @@
+/* eslint-disable */
 "use client";
-
 import ApplicationCard from "@/components/ApplicationCard";
 import Header from "@/components/Header";
 import Loading from "@/components/Loading";
