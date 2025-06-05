@@ -1,5 +1,6 @@
+/* eslint-disable */
 "use client";
-import React, { use, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Amplify } from "aws-amplify";
 
 import {
@@ -11,9 +12,6 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import { signIn } from "aws-amplify/auth";
-import { Sign } from "crypto";
-import path from "path";
 import { usePathname, useRouter } from "next/navigation";
 
 Amplify.configure({
